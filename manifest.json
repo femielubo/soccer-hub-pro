@@ -2,7 +2,7 @@
   "name": "Soccer Player Hub Pro",
   "short_name": "Soccer Hub",
   "description": "Rate players, create teams, and compete in the hub",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#F0F2F5",
   "theme_color": "#208C85",
@@ -10,6 +10,11 @@
     {
       "src": "https://raw.githubusercontent.com/google/material-design-icons/master/png/action/sports_soccer/black/48dp.png",
       "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/google/material-design-icons/master/png/action/sports_soccer/black/48dp.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
