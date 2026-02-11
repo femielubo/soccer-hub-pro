@@ -1,8 +1,10 @@
 const CACHE_NAME = 'soccer-hub-pro-v1';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
+  './',
+  './index.html',
+  './app.js',
+  './style.css',
+  './manifest.json',
   'https://cdn.jsdelivr.net/npm/chart.js',
   'https://raw.githubusercontent.com/google/material-design-icons/master/png/action/sports_soccer/black/48dp.png'
 ];
