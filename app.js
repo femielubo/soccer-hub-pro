@@ -69,6 +69,66 @@ const ATTRIBUTES = [
  logout() {
  this.state.currentUser = null;
  this.save();
+    // Firebase Authentication Methods
+  loginWithGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
+        this.handleSocialLogin(user);
+      })
+      .catch((error) => {
+        console.error('Google login error:', error);
+        alert('Google login failed: ' + error.message);
+      });
+  },
+  loginWithApple() {
+    const provider = new firebase.auth.OAuthProvider('apple.com');
+    firebase.auth().signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
+        this.handleSocialLogin(user);
+      })
+      .catch((error) => {
+        console.error('Apple login error:', error);
+        alert('Apple login failed: ' + error.message);
+      });
+  },
+  loginWithFacebook() {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
+        this.handleSocialLogin(user);
+      })
+      .catch((error) => {
+        console.error('Facebook login error:', error);
+        alert('Facebook login failed: ' + error.message);
+      });
+  },
+  handleSocialLogin(firebaseUser) {
+    const username = firebaseUser.email.split('@')[0];
+    
+    // Check if user already exists
+    if (!this.state.users[username]) {
+      // Create new user from Firebase data
+      this.state.users[username] = {
+        username: username,
+        name: firebaseUser.displayName || username,
+        password: 'firebase-auth', // Placeholder since they use social login
+        firebaseUid: firebaseUser.uid,
+        profile: { position: 'Midfielder', team: '', bio: '', avatar: '⚽' },
+        stats: { xp: 100, level: 1, games: 0, streak: 0, totalRatings: 0, avgRating: 0 },
+        selfRatings: ATTRIBUTES.reduce((acc, a) => ({...acc, [a]: 5}), {}),
+        achievements: []
+      };
+    }
+    
+    // Log in the user
+    this.state.currentUser = username;
+    this.save();
+    this.showMain();
+  },
  location.reload();
  },
  showMain() {
