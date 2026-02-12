@@ -3,14 +3,13 @@
 // Get these from Firebase Console > Project Settings > General
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com"
-};
+apiKey: "AIzaSyBacCKcBoD-DLyRxMdVWLtxMuS3oY2GMJY",
+  authDomain: "soccer-hub-pro.firebaseapp.com",
+  databaseURL: "https://soccer-hub-pro-default-rtdb.firebaseio.com",
+  projectId: "soccer-hub-pro",
+  storageBucket: "soccer-hub-pro.firebasestorage.app",
+  messagingSenderId: "1018713445784",
+  appId: "1:1018713445784:web:02b286c24e2c07f4847ed"};
 
 // Initialize Firebase
 let app, auth, db;
